@@ -1,0 +1,345 @@
+.hosting-main-banner {
+  position: relative;
+  z-index: 1;
+  background-color: #032b8d;
+  padding-top: 250px;
+  padding-bottom: 190px;
+}
+.hosting-main-banner .hosting-banner-content h1 {
+  font-size: 45px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+
+a {
+  color: #1A80CE;
+  display: inline-block;
+  /* -webkit-transition: 0.5s;
+  transition: 0.5s; */
+  text-decoration: none;
+  outline: 0 !important;
+}
+
+/* 
+.radio,
+.radio1,
+.radio2,
+.radio3,
+.radio4 {
+  border:  1px solid rgb(84, 63, 241);
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  border-radius: 50%;
+}
+
+.button3,
+.button5,
+.button7,
+.button9,
+.button11 {
+  color: white;
+  width: 70px;
+  border: 0cm;
+  height: 38px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: rgb(84, 63, 241);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .button2,
+  .button4{
+    color: white;
+    width: 150px;
+    border: 0cm;
+    height: 38px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgb(84, 63, 241);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+
+
+/* 
+
+
+
+  import React, { useState } from 'react';
+import { Paper, Typography, Button, NativeSelect } from '@mui/material';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import { alpha, styled } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
+import './Register.css';
+
+const BootstrapInput = styled(InputBase)(({ theme }) => ({
+  'label + &': {
+    marginTop: theme.spacing(3),
+  },
+  '& .MuiInputBase-input': {
+    borderRadius: 4,
+    position: 'relative',
+    backgroundColor: theme.palette.mode === 'light' ? '#fcfcfb' : '#2b2b2b',
+    border: '1px solid #ced4da',
+    fontSize: 16,
+    width: '375px',
+    padding: '10px 12px',
+    transition: theme.transitions.create(['border-color', 'background-color', 'box-shadow']),
+    '&:focus': {
+      boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`,
+      borderColor: theme.palette.primary.main,
+    },
+  },
+}));
+
+const Register = () => {
+  const [first, setfirst] = useState(true);
+  const [second, setsecond] = useState(false);
+  const [third, setthird] = useState(false);
+
+  const [selected, setSelected] = useState('');
+
+  const selectionChangeHandler = (event) => {
+    setSelected(event.target.value);
+  };
+  const toggle = (id) => {
+    if (id === 1) {
+      setfirst(false);
+      setsecond(true);
+    } else if (id === 2) {
+      setsecond(false);
+      setfirst(true);
+    } else if (id === 3) {
+      setsecond(false);
+      setthird(true);
+    } else if (id === 4) {
+      setthird(false);
+      setsecond(true);
+    }
+  };
+  return (
+    <Paper
+      elevation={3}
+      sx={{
+        width: '575px',
+        height: '650px',
+        borderRadius: '6px',
+        margin: 'auto',
+        marginTop: '30px',
+        justifyContent: 'center',
+      }}
+    >
+      <br />
+      <br />
+      <div className="radio-field">
+        <div
+          className="radio"
+          style={{
+            backgroundColor: first || second || third ? 'rgb(84,63,241)' : '',
+          }}
+        />
+        <div className="radio1" style={{ backgroundColor: second || third ? 'rgb(84,63,241)' : '' }} />
+        <div className="radio2" />
+      </div>
+      {first && (
+        <>
+          <Typography variant="h5" sx={{ textAlign: 'center', color: 'gray', marginTop: '50px' }}>
+            Create Account
+          </Typography>
+          <br />
+          <FormControl variant="standard" sx={{ marginLeft: '90px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Name
+            </InputLabel>
+            <BootstrapInput placeholder="Name" id="bootstrap-input" type="text" />
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              E-mail
+            </InputLabel>
+            <BootstrapInput placeholder="E-mail" id="bootstrap-input" type="email" />
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Mobile
+            </InputLabel>
+            <BootstrapInput placeholder="Mobile" id="bootstrap-input" type="number" />
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Password
+            </InputLabel>
+            <BootstrapInput placeholder="Password" id="bootstrap-input" type="password" />
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Confirm password
+            </InputLabel>
+            <BootstrapInput placeholder="Confirm Password" id="bootstrap-input" type="password" />
+          </FormControl>
+          <Button
+            sx={{ marginLeft: '415px' }}
+            onClick={() => {
+              toggle(1);
+            }}
+          >
+            <p className="button3">
+              <b>Next</b>
+            </p>
+          </Button>
+        </>
+      )}
+      {second && (
+        <>
+          <Typography variant="h5" sx={{ textAlign: 'center', color: 'gray', marginTop: '50px' }}>
+            Your Organization
+          </Typography>
+          <br />
+          <FormControl
+            variant="standard"
+            sx={{
+              marginLeft: '90px',
+              width: "400px"
+            }}
+          >
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Partner Type
+            </InputLabel>
+            <NativeSelect
+              id="bootstrap-input"
+              // type="text"
+              value={selected}
+              onChange={selectionChangeHandler}
+              input={<BootstrapInput />}
+            >
+              <option value={1}>Work Partner</option>
+              <option value={2}>Survey Partner</option>
+            </NativeSelect>
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px',width:"400px" }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Joining As
+            </InputLabel>
+            <NativeSelect
+              id="bootstrap-input"
+              // type="text"
+              value={selected}
+              onChange={selectionChangeHandler}
+              input={<BootstrapInput />}
+            >
+              <option value={1}>Individual</option>
+              <option value={2}>Having a Team</option>
+            </NativeSelect>
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Work Location Pincode
+            </InputLabel>
+            <BootstrapInput placeholder="work location pincode" id="bootstrap-input" type="number" />
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Work Location
+            </InputLabel>
+            <BootstrapInput placeholder="work location" id="bootstrap-input" type="text" />
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Firm Name
+            </InputLabel>
+            <BootstrapInput placeholder="firm name" id="bootstrap-input" type="text" />
+          </FormControl>
+          <Button
+            sx={{ marginLeft: '85px' }}
+            onClick={() => {
+              toggle(2);
+            }}
+          >
+            <p className="button2">
+              <b>Previous</b>
+            </p>
+          </Button>
+          <Button
+            sx={{ marginLeft: '160px' }}
+            onClick={() => {
+              toggle(3);
+            }}
+          >
+            <p className="button5">
+              <b>Next</b>
+            </p>
+          </Button>
+        </>
+      )}
+      {third && (
+        <>
+          <Typography variant="h5" sx={{ textAlign: 'center', color: 'gray', marginTop: '50px' }}>
+            Address & Aadhar
+          </Typography>
+          <br />
+          <FormControl variant="standard" sx={{ marginLeft: '90px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Present Address
+            </InputLabel>
+            <BootstrapInput placeholder="present address" id="bootstrap-input" type="text" />
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Permanent Address
+            </InputLabel>
+            <BootstrapInput placeholder="permanent address" id="bootstrap-input" type="text" />
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Aadhar Number
+            </InputLabel>
+            <BootstrapInput placeholder="aadhar number" id="bootstrap-input" type="number" />
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Upload Aadhar
+            </InputLabel>
+            <BootstrapInput placeholder="upload aadhar" id="bootstrap-input"  hidden accept="image/*" type="file" />
+          </FormControl>
+          <FormControl variant="standard" sx={{ marginLeft: '90px', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Religion
+            </InputLabel>
+            <BootstrapInput placeholder="religion" id="bootstrap-input" type="text" />
+          </FormControl>
+          <Button
+            sx={{ marginLeft: '85px' }}
+            onClick={() => {
+              toggle(4);
+            }}
+          >
+            <p className="button4">
+              <b>Previous</b>
+            </p>
+          </Button>
+          <Button sx={{ marginLeft: '160px' }}>
+            <p className="button7">
+              <b>Next</b>
+            </p>
+          </Button>
+        </>
+      )}
+    </Paper>
+  );
+};
+
+export default Register; */
