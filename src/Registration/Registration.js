@@ -68,9 +68,9 @@ const Registration = () => {
                       aliqua. Quis ipsum suspendisse ultrices gravida.
                     </p>
 
-                    <a href="contact.html" className="btn btn-primary">
+                    {/* <a href="contact.html" className="btn btn-primary">
                       Download Ticket
-                    </a>
+                    </a> */}
                   </div>
                 </div>
 
@@ -80,7 +80,7 @@ const Registration = () => {
                       elevation={3}
                       sx={{
                         width: "575px",
-                        height: "500px",
+                        height: "560px",
                         borderRadius: "6px",
                         // margin: "auto",
                         marginTop: "50px",
@@ -95,13 +95,13 @@ const Registration = () => {
                           variant="h5"
                           sx={{
                             textAlign: "center",
-                            color: "gray",
+                            color: "black",
                             marginTop: "50px",
                             alignItems:'center',
                             justifyContent:'center'
                           }}
                         >
-                          Registration
+                          Event Registration Form
                         </Typography>
                         <br />
                         <FormControl
@@ -109,7 +109,7 @@ const Registration = () => {
                           sx={{ marginLeft: "90px" }}
                         >
                           <InputLabel shrink htmlFor="bootstrap-input">
-                            User Name
+                            Full Name
                           </InputLabel>
                           <BootstrapInput
                             placeholder="Name"
@@ -132,6 +132,7 @@ const Registration = () => {
                           />
                         </FormControl>
                        
+                       
                         <FormControl
                           variant="standard"
                           sx={{ marginLeft: "90px", marginTop: "10px" }}
@@ -140,23 +141,36 @@ const Registration = () => {
                             Mobile No
                           </InputLabel>
                           <BootstrapInput
-                            placeholder="Password"
+                            placeholder="Mobile No"
                             id="bootstrap-input"
-                            type="password"
+                            type="number"
                           />
                         </FormControl>
-                     
+                         
+                        <FormControl
+                          variant="standard"
+                          sx={{ marginLeft: "90px", marginTop: "10px" }}
+                        >
+                          <InputLabel shrink htmlFor="bootstrap-input">
+                            Organization if any
+                          </InputLabel>
+                          <BootstrapInput
+                            placeholder="Organization"
+                            id="bootstrap-input"
+                            type="text"
+                          />
+                        </FormControl>
                         <Button
                           sx={{
                             width: "400px",
                             height: "45px",
-                            backgroundColor: "#1A80CE",
+                            backgroundColor: "#1A80CE !important",
                             marginTop: "20px",
                             color: "#fff",
                             marginLeft: "90px",
                             fontSize: "16px",
                           }}
-                          type="submit"
+                          type="button"
                           onClick={handleClick}
                        
                         >
