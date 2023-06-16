@@ -26,13 +26,13 @@ body {
 
 
 
-.ml-auto {
+/* .ml-auto {
   margin-left: auto !important;
 }
 
 .mr-auto {
   margin-right: auto !important;
-}
+} */
 
 .d-table {
   width: 100%;
@@ -70,3 +70,23 @@ p:last-child {
   padding-bottom: 80px;
 }
 
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+
+/* Styles for screens that are 480px wide or less */
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    padding:0 5px;
+ }
+}
+@media screen and (max-width: 350px) {
+  .container {
+    max-width: 100%;
+    padding:0 5px;
+ }
+}

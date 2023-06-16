@@ -1,28 +1,59 @@
-import React from "react";
+// import React, { useState } from "react";
 import {
   Paper,
   Typography,
   Button,
-  MenuItem,
-  Select,
+  // MenuItem,
+  // Select,
   Grid,
 } from "@mui/material";
-import QRCode from "react-qr-code";
+// import QRCode from "react-qr-code";
 import image from "./img/yoga.png";
 import image1 from "./img/image 1.png";
 import image2 from "./img/image 2.png";
 import image3 from "./img/image 3.png";
 import image4 from "./img/image4.jpg";
-
-const Ticket = () => {
+import image5 from "./img/image5.jpg";
+import html2pdf from "html2pdf.js";
+const Ticket = ({ name, qRImage, tokenNo }) => {
+  const handleDownloadPDF = () => {
+    const element = document.getElementById("ticket-component");
+    html2pdf()
+      .set({
+        html2canvas: { scale: 4 },
+        filename: "yogamahotsav entry pass.pdf",
+        margin: [10, 10],
+      })
+      .from(element)
+      .save();
+  };
   return (
     <>
-      <div
-      style={{ marginLeft:"470px",marginTop:"40px"}}
-      >
-        <Typography variant="h5"  sx={{textDecorationLine:'underline',fontSize:'18px',fontFamily:'Poppins',}}>This Ticket will be your entry pass for the event</Typography>
-      
+   
+
+      <div style={{ 
+        // marginLeft: "350px",
+       marginTop: "30px",
+       textAlign:'center',width:"100%",
+      //  backgroundColor:'pink'
+        }}>
+        <Typography
+          variant="h5"
+          sx={{
+            textDecorationLine: "underline",
+            fontSize: "18px",
+            fontFamily: "Poppins",
+            // justifyContent:'center',
+            // alignItems:'center',
+            width:'100%',
+            textAlign :'center',
+          }}
+        >
+          This Ticket will be your entry pass for the event
+        </Typography>
       </div>
+      <div id="ticket-component">
+    
       <Paper
         elevation={3}
         sx={{
@@ -33,6 +64,8 @@ const Ticket = () => {
           marginTop: "30px",
           justifyContent: "center",
           alignItems: "center",
+          display:'flex',
+
         }}
       >
         {" "}
@@ -75,23 +108,33 @@ const Ticket = () => {
                 >
                   <img
                     src={image2}
-                    style={{ width: "45px", height: "45px" }}
+                    style={{ width: "80px", height: "55px" }}
                     alt="info"
                   />
                   <img
                     src={image3}
                     style={{
-                      width: "45px",
-                      height: "45px",
+                      width: "80px",
+                      height: "55px",
                       marginLeft: "15px",
                     }}
                     alt="info"
                   />
+                    <img
+                    src={image5}
+                    style={{
+                      width: "100px",
+                      height: "55px",
+                      marginLeft: "15px",
+                    }}
+                    alt="info"
+                  />
+
                   <img
                     src={image4}
                     style={{
-                      width: "45px",
-                      height: "45px",
+                      width: "100px",
+                      height: "55px",
                       marginLeft: "15px",
                     }}
                     alt="info"
@@ -99,8 +142,8 @@ const Ticket = () => {
                   <img
                     src={image1}
                     style={{
-                      width: "45px",
-                      height: "45px",
+                      width: "100px",
+                      height: "55px",
                       marginLeft: "15px",
                     }}
                     alt="info"
@@ -229,7 +272,7 @@ const Ticket = () => {
                         color: "black",
                       }}
                     >
-                      07 AM - 07 PM
+                      07 PM - 08 PM
                     </Typography>
                   </div>
                 </div>
@@ -310,14 +353,17 @@ const Ticket = () => {
                     fontWeight: 700,
                     marginTop: "40px",
                     position: "absolute",
-                    width: "39px",
-                    height: "12px",
-                    marginLeft: "48px",
+                    width: "135px",
+                    height: "40px",
+                    // marginLeft: "30px",
                     textAlign: "center",
                     color: "black",
+                    paddingLeft:"2px",
+                    paddingRight:"2px"
+                    // backgroundColor:'pink'
                   }}
                 >
-                  Prakhar
+                  {name}
                 </Typography>
                 <div
                   style={{
@@ -329,8 +375,18 @@ const Ticket = () => {
                     border: "1px solid rgba(254, 210, 87, 0.33)",
                   }}
                 >
-                  <QRCode size={75} value="toturial.com" />
+                  {/* <QRCode size={75} value={qRImage} /> */}
+                  {name.length > 0 && qRImage ? (
+                    <>
+                      <img
+                        src={qRImage}
+                        alt="QRImage"
+                        style={{ width: "76px", height: "76px" }}
+                      />
+                    </>
+                  ) : null}
                 </div>
+
                 <div sx={{ width: "69px", height: "24px" }}>
                   <Typography
                     sx={{
@@ -351,12 +407,12 @@ const Ticket = () => {
                       fontFamily: "Poppins",
                       position: "absolute",
                       marginTop: "170px",
-                      marginLeft: "38px",
+                      marginLeft: "30px",
                       textAlign: "center",
                       color: "black",
                     }}
                   >
-                    MDNIY012345
+                    {tokenNo}
                   </Typography>
                 </div>
               </Paper>
@@ -364,19 +420,37 @@ const Ticket = () => {
           </Grid>
         </div>
       </Paper>
-      <div>  <Button
+      </div>
+      <div style={{width:"100%",
+      // backgroundColor:'pink' ,
+      textAlign:'center'}}>
+        {" "}
+        <Button
           sx={{
             width: "200px",
             height: "45px",
-            backgroundColor: "#ff6500",
+            backgroundColor: "#ff6500 !important",
             marginTop: "20px",
             color: "#fff",
-            marginLeft: "600px",
+            // marginLeft: "450px",
+            alignItems: 'center',
+            justifyContent:'center',
             fontSize: "16px",
           }}
+          onClick={handleDownloadPDF}
         >
-          Download Ticket
-        </Button></div>
+          {/* <a
+            href={qRImage}
+            download
+            style={{ textDecoration: "none", color: "#fff" }}
+          >
+            {" "} */}
+            
+            Download Now
+          {/* </a> */}
+        </Button>
+      </div>
+     
     </>
   );
 };
